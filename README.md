@@ -13,11 +13,11 @@ Build a simple REST API capable of CRUD operations on a "person" resource, inter
 - **Detailed Documentation**: Documentation should provide clear guidance on how to use the API, including setup, request/response formats, and sample usage.
 
 ## Documentation
-The full documentation can be found here.
+The full documentation can be found [here](https://github.com/oputaolivia/hng-task-2/blob/main/DOCUMENTATION.md).
 
 ## Test API
-The postman collection can be found here.
+The postman collection can be found [here](https://github.com/oputaolivia/hng-task-2/blob/main/documentation/hngTask2.postman_collection).
 
 ## UML Diagram
-The Unified Modelling Language diagram can be found here.
+The Unified Modelling Language diagram can be found [here](https://github.com/oputaolivia/hng-task-2/blob/main/models/UML_DIAGRAM.png).
 
