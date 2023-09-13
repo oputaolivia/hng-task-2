@@ -24,7 +24,7 @@ const createUser = async (req, res) => {
       const createdPerson = await user.save();
       res.status(201).send({
         data: createdPerson,
-        message: `${name} added`,
+        message: `${name} created`,
         status: 0,
       });
     }
@@ -37,7 +37,7 @@ const createUser = async (req, res) => {
   }
 };
 
-// Retrieve User
+// Retrieve a User
 const retrieveUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -58,6 +58,25 @@ const retrieveUser = async (req, res) => {
     });
   }
 };
+
+// Retrieve all Users
+const getUsers = async (req, res) =>{
+  try {
+    const persons = await User.find({})
+
+    res.status(200).send({
+      data: persons,
+      message: `All persons fetched`,
+      status: 0,
+    })
+  } catch (error) {
+    res.status(500).send({
+      data: {},
+      message: `Error: ${error.message}`,
+      status: 1,
+    });
+  }
+}
 
 // Update User
 const updateUser = async (req, res) => {
@@ -94,7 +113,8 @@ const updateUser = async (req, res) => {
 
 // Delete User
 const deleteUser = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
   const existingUser = await User.findById(id);
 
   if (existingUser) {
@@ -109,6 +129,13 @@ const deleteUser = async (req, res) => {
       status: 1,
     });
   }
+  } catch (error) {
+    res.status(500).send({
+      data: {},
+      message: `Error: ${error.message}`,
+      status: 1,
+    });
+  }
 };
 
 module.exports = {
@@ -116,4 +143,5 @@ module.exports = {
   updateUser,
   retrieveUser,
   deleteUser,
+  getUsers,
 };
